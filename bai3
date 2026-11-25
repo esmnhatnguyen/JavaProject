@@ -1,0 +1,41 @@
+import java.awt.*;
+import javax.swing.*;
+
+
+public class bai3{
+    public static void main (String[] args){
+        JFrame frame = new JFrame("GroupHolder Test");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JTabbedPane tabs= new JTabbedPane();
+
+        JPanel textPanel= new JPanel(new FlowLayout());
+        JTextField inputText= new JTextField(24);
+        JTextArea outputText= new JTextArea(5,24);
+        textPanel.add(inputText);
+        textPanel.add(outputText);
+        inputText.addActionListener(event ->{
+            String text= inputText.getText();
+            outputText.setText(text);
+        });
+
+
+        JPanel swingPanel= new JPanel();
+
+        JPanel layoutPanel= new JPanel();
+        JPanel javaPanel= new JPanel();
+        tabs.addTab("Text", textPanel);
+        tabs.addTab("Swing", swingPanel);
+        tabs.addTab("Layout", layoutPanel);
+        tabs.addTab("Java", javaPanel);
+
+        
+
+        frame.add(tabs);
+        frame.setVisible(true);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+
+
+    }
+}
